@@ -1,0 +1,4 @@
+# ENMU-Fall-2022
+
+CS 123
+MATH 1230
