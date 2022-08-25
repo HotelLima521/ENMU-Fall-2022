@@ -1,0 +1,11 @@
+// Inputs
+int starting_balance = 10000
+float interest = 0.5 // per month interest, or 6%/year
+int monthly_withdrawal = 500
+
+// Outputs
+
+// Algorithm
+
+// Multiply starting balance by interest and subtract from monthly withdrawal. This should be lower than the actual monthly_withdrawal. Write a loop to continue this process until starting_balance is depleted.
+while starting_balance >= 0:

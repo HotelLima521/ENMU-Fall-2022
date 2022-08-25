@@ -1,0 +1,19 @@
+string list_of_names, desired_name = {} // A list of names for input, and the desired name that we want to match with
+message // A message by the searching result for output
+
+
+for each name, n in list_of_names do:
+    if n == desired_name then:
+        message = "The name has been found"
+        return message
+        break
+
+message = "The name has not been found"
+return message
+
+<!--                                      -->
+
+list of names = essa, edoardo, derek
+desired_name = derek
+
+n = essa
