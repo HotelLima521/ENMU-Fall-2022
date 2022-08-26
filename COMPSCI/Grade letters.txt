@@ -1,0 +1,69 @@
+/*
+name: student_Number
+input: number_Grade //70
+output: letter_Grade
+*/
+/*
+A >= 93.00
+A- =90.00-92.99
+B+ = 87.00 - 89.99
+B = 83.00-86.99
+B- = 80.00-82.99
+C+ = 77.00-79.99
+C = 73.00 - 76.99
+C- = 70.00 - 72.99
+D+ = 67.00-69.99
+D= 63.00-66.99
+D-=60.00 - 62.99
+F <= 59.99
+*/
+
+if IsGreaterOrEqual(number_Grade, 93)
+    return "A"
+else if IsBetween(number_Grade, 90, 92.99)
+    return "A-"
+else if IsBetween(number_Grade, 87, 89.99)
+    return "B+"
+else if IsBetween(number_Grade, 83, 86.99)
+    return "B"
+else if IsBetween(number_Grade, 80, 82.99)
+    return "B-"
+else if IsBetween(number_Grade, 77, 79.99)
+    return "C+"
+else if IsBetween(number_Grade, 73, 76.99)
+    return "C"
+else if IsBetween(number_Grade, 70, 72.99)
+    return "C-"
+else if IsBetween(number_Grade, 67, 69.99)
+    return "D+"
+else if IsBetween(number_Grade, 63, 66.99)
+    return "D"
+else if IsBetween(number_Grade, 60, 62.99)
+    return "D-"
+else
+    return "F"
+
+// --------------------------------------- //
+
+/*
+name: students_grades
+input: gradebook
+output: gradebook // modified gradebook
+*/
+
+for each student, st in gradebook do // Essa
+    letter_Grade = assign_letter_grade(st -> number_Grade) //C-
+    gradebook[st] -> number_Grade = letter_Grade
+return gradebook
+
+// -------------------------------------- //
+
+gradebook
++ Essa  +.....+ 70 + C- +
++ Derek +.....+ 90 + A- +
+.
+.
+.
+.
+.
+
