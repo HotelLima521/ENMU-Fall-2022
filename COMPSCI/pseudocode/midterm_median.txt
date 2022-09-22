@@ -1,0 +1,28 @@
+Input: a_list_of_grades
+output: median
+
+a_list_of_grades = {20, 90, 100, 1}
+
+for(int i = 0; i < a_list_of_grades.length - 1; i++)
+	for(int j = i+1; j < a_list_of_grades.length; j++)
+
+
+
+for each item, it1 in a list_of_grades stopping at n-1 do:
+	print it1
+	for each item, it2 in a_list_of_grades starting from it1+1 do
+		// it2 starts at the position of it1 + 1
+		if(it1 > it2)
+			tmp = t1
+			it1 = t2
+			it2 = tmp
+
+n = a_list_of_grades.length
+m = n/2
+if(m is odd)
+	roundUp(m)
+
+return a_list_of_grades[m] // Median
+
+n*n
+n is the length of the list

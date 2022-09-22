@@ -1,0 +1,10 @@
+i = 0
+number_of_students = 5
+midterm_grades = [number_of_students]
+average_grade = 0
+
+while(midterm_grades[i] < number_of_students)
+	average_grade += midterm_grades[i]
+	i++
+
+average_grade /= number_of_students
