@@ -31,9 +31,9 @@ public class Lab2b {
 		}
 	public static void main(String[] args){
 		Scanner userinput = new Scanner(System.in); // Setting up user input due to goofy Java Syntax
-		System.out.println("Please enter first time in 24-hour format\n-> ");
+		System.out.println("Please enter first time in 24-hour format: ");
 		int time1 = userinput.nextInt(10); // Enforcing base 10, not really necessary to do this, but it's good practice
-		System.out.println("Please enter second time in 24-hour format\n-> ");
+		System.out.println("Please enter second time in 24-hour format: ");
 		int time2 = userinput.nextInt(10); // Enforcing base 10, not really necessary to do this, but it's good practice.
 		compute(time1, time2);
 
