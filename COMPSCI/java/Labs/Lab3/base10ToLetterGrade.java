@@ -1,11 +1,12 @@
 import java.util.Scanner;
-public class Lab3a {
-	/*
-	 * I don't really think this needs too much documentation, the code itself
-	 * with the properly named variables in this case should be sufficient to
-	 * properly understand and maintain the source. If I added any further
-	 * documentation, I believe it would cause this source to become too bulky
-	 * to read and 100% unecessary.
+public class base10ToLetterGrade {
+	/* 
+	 * Author: Derek White
+	 * Date: 28 September 2022
+	 *
+	 *
+	 * Purpose: This program will check the input decimal grade and translate it to a
+	 * Letter grade.
 	 */
 	public static char calculate(int g){
 		int inputGrade = g;
