@@ -9,7 +9,7 @@ public class factorialOfNumber {
       System.out.println("Please enter a number for the factorial: ");
       int userIn = userInput.nextInt();
       int userInOriginal = userIn;
-      int factorial = 1;
+      double factorial = 1;
       int factorialIncrement = 1;
       while(factorialIncrement <= userIn){
 	 factorial *= factorialIncrement;
