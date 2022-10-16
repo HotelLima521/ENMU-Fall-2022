@@ -11,20 +11,56 @@
  */
 
 import java.util.Scanner;
-public class IntegerInputs {
+public class IntegerInputs extends ArrayList {
    public static void main(String[] args){
-      int biggest, smallest;
       Scanner userInput = new Scanner(System.in);
       System.out.println("Please enter some integer values: ");
-      boolean flag = true;
-      int intInput = userInput.nextInt();
-      biggest = intInput;
-      smallest = intInput;
-           System.out.println("Smallest: " + smallest);
-      System.out.println("Biggest: " + biggest);
-      System.out.println("Numbers: " + individualNumbers);
+      String userStringInput = userInput.nextLine();
+      ArrayList input[] = new ArrayList.inputArray[20];
+      ArrayList parse[] = new ArrayList.integerArray[20];
+      try {
+	 while(!userStringInput.isEmpty()){
+	 
+	    for(int userIn = 0; userIn < parse.length; userIn++){
+	       int userNumber = Integer.parseInt(userStringInput);
+	       parse[userIn] = userNumber;  
+	    }
+	    userStringInput = userInput.nextLine();
+	 }
+      }
+      catch(NumberFormatException e){
+	 System.out.println("It appears you inputted the incorrect character");
+      }
+      // Smallest and Largest Inputs
+      smallestAndLargestInputs();
+     
+      // Cumulative Number Addition
+ //     cumulativeNumberAddition(biggest, smallest);
+
+      // Number of Odd and Even Inputs
+ //     numberOfOddAndEvenInputs();
+
+      // Adjacent Duplicates
+ //     adjacentDuplicates();
+
    }
-   public static int cumulativeNumberAddition(int number0, int number1){
+   public static void smallestAndLargestInputs(){
+      ArrayList parsed[] = new ArrayList.integerArray[20];
+      int smallest;
+      int largest;
+      int n = 0; // To signify the position of the array
+      while(parsed[n] < parsed.length){
+	 if(n < n+1){
+	    smallest = n;
+	 }
+	 else{
+	    largest = n;
+	 }
+      }
+      System.out.println("Largest: " + largest +"\nSmallest: " + smallest);
+   }
+
+   /*public static void cumulativeNumberAddition(){
       while(flag){
 	 intInput = userInput.nextInt();
    	 if(biggest <= intInput){
@@ -37,16 +73,10 @@ public class IntegerInputs {
       }
    }
 
-
-
-
-
-
-
-
-
-
-
-
+   public static void numberOfOddAndEvenInputs(){
+   
+      
+   public static void adjacentDuplicates(){
+   }*/
 
 }
