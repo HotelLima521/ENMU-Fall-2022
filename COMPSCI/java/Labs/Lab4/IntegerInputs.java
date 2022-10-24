@@ -37,14 +37,19 @@ public class IntegerInputs {
       System.out.println("Please enter some integer values: ");
       String userStringInput = userInput.nextLine();
       int[] integerArray;
-      integerArray = new int[20];
-      int counter = 0;
-      try {
+      integerArray = new int[userStringInput.length()];
+      for(int userIn = 0; userIn < integerArray.length; userIn++){
+	       System.out.printf("In Character %c, Character to Integer %d, Character to String %s, String to Integer %d\n",
+		     userStringInput.charAt(userIn), (int)(userStringInput.charAt(userIn)),
+		     Character.toString(userStringInput.charAt(userIn)), Integer.parseInt(Character.toString(userStringInput.charAt(userIn))) );
+
+	       integerArray[userIn] = Integer.parseInt(Character.toString(userStringInput.charAt(userIn)));
+	    }
+      /*try {
 	 while(!userStringInput.isEmpty()){
 	 
 	    for(int userIn = 0; userIn < integerArray.length; userIn++){
-	       int userNumber = Integer.parseInt(userStringInput);
-	       integerArray[userIn] = userNumber;  
+	       integerArray[userIn] = Integer.parseInt(Character.toString(userStringInput.charAt(userIn)));
 	    }
 	    userStringInput = userInput.nextLine();
 	    counter++;
@@ -53,18 +58,18 @@ public class IntegerInputs {
       catch(NumberFormatException e){
 	 System.out.println("It appears you inputted the incorrect character");
       }
-      //System.out.println(colors('d') + "Counter is: " + counter + colors('r'));
+      */
       // Smallest and Largest Inputs
-      smallestAndLargestInputs(integerArray, counter);
+      smallestAndLargestInputs(integerArray, userStringInput.length());
      
       // Cumulative Number Addition
- //     cumulativeNumberAddition(biggest, smallest);
+      cumulativeNumberAddition(integerArray, userStringInput.length());
 
       // Number of Odd and Even Inputs
- //     numberOfOddAndEvenInputs();
+      numberOfOddAndEvenInputs(integerArray, userStringInput.length());
 
       // Adjacent Duplicates
- //     adjacentDuplicates();
+      adjacentDuplicates(integerArray, userStringInput.length());
 
    }
    public static void smallestAndLargestInputs(int[] parsed, int counter){
@@ -72,38 +77,49 @@ public class IntegerInputs {
       int largest = 0;
       int n = 0; // To signify the position of the array
       while(n < counter){
-	 System.out.println(colors('d') + n + ' ' + counter + colors('r'));
+	 //System.out.println(colors('d') + n + ' ' + counter + colors('r'));
 	 if(smallest >= parsed[n]){
 	    smallest = parsed[n];
 	 }
-	 else if(parsed[n] >= largest){
+	 if(parsed[n] >= largest){
 	    largest = parsed[n];
-	 }
-	 else{
-	    System.out.println("Error");
 	 }
 	 n++;
       }
       System.out.println(colors('p') + "Largest: " + colors('c') + largest + colors('r') + colors('p') +"\nSmallest: " + colors('c') + smallest +colors('r'));
    }
-/*
-   public static void cumulativeNumberAddition(){
-      while(flag){
-	 intInput = userInput.nextInt();
-   	 if(biggest <= intInput){
-	    biggest = intInput;
-	 }
-	 else if(smallest >= intInput){
-	    smallest = intInput;
-	 }
 
+   public static void cumulativeNumberAddition(int[] parsed, int counter){
+      int n = 0;
+      int sum;
+      while(n < counter){
+   	 sum += parsed[n];
+	 n++;
       }
+      System.out.printf("The Cumulative Sum is: %d", sum);
    }
 
-   public static void numberOfOddAndEvenInputs(){
-   
-      
-   public static void adjacentDuplicates(){
+   public static void numberOfOddAndEvenInputs(int[] parsed, int counter){
+      int even, odd;
+      while(n < counter){
+	 if(n % 2 == 0){
+	    even++;
+	 }
+	 else{
+	    odd++;
+	 }
+	 n++;
+      }
+      System.out.printf("Number of even numbers: %d\nNumber of Odd Numbers: %d", even, odd);
    }
-*/
+   public static void adjacentDuplicates(int[] parsed, int counter){
+      // Let's literally just check for duplicates and push them to a new array, then push that array as a string
+      int n = 0;
+      int[] duplicate = new int duplicate[parsed.length()];
+      while(n < counter){
+	 duplicate[n]
+      }
+
+   }
+
 }
