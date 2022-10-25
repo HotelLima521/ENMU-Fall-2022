@@ -34,15 +34,15 @@ public class IntegerInputs {
    }
    public static void main(String[] args){
       Scanner userInput = new Scanner(System.in);
-      System.out.println("Please enter some integer values: ");
+      System.out.println(colors('c') + "Please enter some integer values: " + colors('r'));
       String userStringInput = userInput.nextLine();
       int[] integerArray;
       integerArray = new int[userStringInput.length()];
       for(int userIn = 0; userIn < integerArray.length; userIn++){
-	       System.out.printf("In Character %c, Character to Integer %d, Character to String %s, String to Integer %d\n",
+	       /*System.out.printf("In Character %c, Character to Integer %d, Character to String %s, String to Integer %d\n",
 		     userStringInput.charAt(userIn), (int)(userStringInput.charAt(userIn)),
 		     Character.toString(userStringInput.charAt(userIn)), Integer.parseInt(Character.toString(userStringInput.charAt(userIn))) );
-
+*/
 	       integerArray[userIn] = Integer.parseInt(Character.toString(userStringInput.charAt(userIn)));
 	    }
       /*try {
@@ -59,6 +59,11 @@ public class IntegerInputs {
 	 System.out.println("It appears you inputted the incorrect character");
       }
       */
+      int n = 0;
+      while(n < integerArray.length){
+         System.out.println(colors('d') + "Digits: " +  integerArray[n]);
+	 n++;
+      }
       // Smallest and Largest Inputs
       smallestAndLargestInputs(integerArray, userStringInput.length());
      
@@ -91,18 +96,20 @@ public class IntegerInputs {
 
    public static void cumulativeNumberAddition(int[] parsed, int counter){
       int n = 0;
-      int sum;
+      int sum = 0;
       while(n < counter){
    	 sum += parsed[n];
 	 n++;
       }
-      System.out.printf("The Cumulative Sum is: %d", sum);
+      System.out.printf(colors('p') + "The Cumulative Sum is: " + colors('c') + "%d\n" + colors('r'), sum);
    }
 
    public static void numberOfOddAndEvenInputs(int[] parsed, int counter){
-      int even, odd;
+      int even = 0;
+      int odd = 0;
+      int n = 0;
       while(n < counter){
-	 if(n % 2 == 0){
+	 if(parsed[n] % 2 == 0){
 	    even++;
 	 }
 	 else{
@@ -110,16 +117,32 @@ public class IntegerInputs {
 	 }
 	 n++;
       }
-      System.out.printf("Number of even numbers: %d\nNumber of Odd Numbers: %d", even, odd);
+      System.out.printf(colors('p') + "Number of Even numbers: " + colors('c') + "%d\n" + colors('r') + colors('p') + "Number of Odd Numbers: " + colors('c') + "%d\n" + colors('r'), even, odd);
    }
    public static void adjacentDuplicates(int[] parsed, int counter){
       // Let's literally just check for duplicates and push them to a new array, then push that array as a string
+      int holdNum;
       int n = 0;
-      int[] duplicate = new int duplicate[parsed.length()];
+      int[] duplicate;
+      duplicate = new int[parsed.length];
+      
+      n = 0;
       while(n < counter){
-	 duplicate[n]
+	 int count = 0;
+	 holdNum = duplicate[n];
+	 if(parsed[n+1] == holdNum){
+	    count++;
+	    duplicate[n] = holdNum;
+   	 }
+	 n++;
       }
-
+      n = 0;
+      System.out.printf(colors('p') + "The number of duplicates adjacent to each other are the following: " + colors('r'));
+      while(n < duplicate.length){
+	 System.out.printf(colors('c') + "%d " + colors('r'), duplicate[n]);
+      }
    }
+
+
 
 }
