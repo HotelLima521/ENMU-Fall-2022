@@ -17,7 +17,7 @@ import java.util.Scanner;
  */
 public class stringFunctions{
    public static void bar(){
-       /*    
+       /**    
        * Function for separating outputs from other functions, blame my ADHD    
        */    
       char bar = '\u2015';    
@@ -26,6 +26,14 @@ public class stringFunctions{
       }    
    }
    public static String colors(char input){
+      /**
+       * Function for applying color in terminal to make output easier to read
+       * At the cost of a bit more annoying code in the strings.
+       * 
+       * @param input | This will be a character that will tell this function what to return
+       *
+       * @return color | This is a string that will put itself in another string to color the text.
+       */
       final String ANSI_RESET="\033[0;0m";
       final String ANSI_CYAN="\033[0;36m";
       final String ANSI_PURPLE="\033[1;38m";
@@ -74,8 +82,14 @@ public class stringFunctions{
    }
    
    public static String middle(char[] charArray){
-      // Finding middle digit
-      float middleDigits = (charArray.length - 1) / 2;
+      /**
+       * Finding middle digit
+       * @param charArray is an array of characters split up from initial string
+       * by user.
+       *
+       * @return middle | the middle character(s)
+       */
+      float middleDigits = (charArray.length) / 2;
       int middleInt = 0;
       int middleIntUpper = 0;
       String middle = "";
@@ -91,7 +105,13 @@ public class stringFunctions{
       return middle;
    }
    public static String repeat(String userInput, int amount){
-      // repeating string x amount of times
+      /**
+       * Repeats string x amount of times
+       * @param userInput is the second string from user
+       * @param amount is the amount to repeat
+       *
+       * @return output | is String by the amount requested by user
+       */
       String output = "";
       for(int i = 0; i < amount; i++){
 	 output += userInput;
@@ -99,7 +119,12 @@ public class stringFunctions{
       return output;
    }
    public static int countVowels(char[] charArray){
-      // Counting vowels in String
+      /**
+       * Counting vowels in String
+       * @param charArray is an array of characters split from the initial string
+       * by the user.
+       * @return vowels | to show amount of vowels in the string.
+       */
       int vowels = 0;
       char[] vowelArray;
       vowelArray = new char[]{'a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'};
@@ -113,7 +138,12 @@ public class stringFunctions{
       return vowels;
    }
    public static int countWords(String userStringInput){
-      // Counting words in String
+      /**
+       * Counting words in String
+       * @param userStringInput is the initial, unaltered string from user.
+       * 
+       * @return words | To show the amount of words in the string.
+       */
       int words = userStringInput.split("\\s").length;
       return words;
    }

@@ -17,7 +17,7 @@ import java.util.Scanner;
  */
 public class threeInput {
    public static void bar(){
-      /*
+      /**
        * Function for separating outputs from other functions, blame my ADHD
        */
       char bar = '\u2015';
@@ -26,12 +26,17 @@ public class threeInput {
       }
    }
    public static String colors(char input){
-      /*
+      /**
        * This function is to set colors on the string
        * output to make it easier to read, despite the
        * string source code looking ugly
        *
        * Again, blame my ADHD.
+       *
+       * @param input | Character input to decide on color
+       *
+       * @return color | Returns string to be inserted in another string
+       * in order to colorfy it.
        */
       final String ANSI_RESET = "\033[0;0m";
       final String ANSI_CYAN = "\033[0;36m";
@@ -82,10 +87,15 @@ public class threeInput {
       
    }
    public static boolean allTheSame(int[] intArray){
-      /*
+      /**
        * This function just checks whether or not the numbers
        * supplied by the array in the main function from user
        * input are all the same or not.
+       *
+       * @param intArray | Array of integers from user
+       *
+       * @return | Depending on if all numbers are the same, it will return true.
+       * If not, will return false.
        */
       int x = intArray[0];
       int y = intArray[1];
@@ -98,10 +108,14 @@ public class threeInput {
       }
    }
    public static double average(int[] intArray){
-      /*
+      /**
        * This function finds the average of the numbers
        * supplied by user input and returns the average
        * number.
+       *
+       * @param intArray | Array of integers from user
+       *
+       * @return average | Returns the average number from the array.
        */
       double x = intArray[0];
       double y = intArray[1];
@@ -110,9 +124,13 @@ public class threeInput {
       return average;
    }
    public static double theSmallest(int[] intArray){
-      /*
+      /**
        * This function finds the smallest number from
        * the array created in the main function.
+       *
+       * @param intArray | Array of integers from user.
+       * 
+       * @return smallest | This will return the smallest number
        */
       int x = intArray[0];
       int y = intArray[1];
@@ -129,10 +147,13 @@ public class threeInput {
       return smallest;
    }
    public static boolean sorted(int[] intArray){
-      /*
+      /**
        * This function sorts the numbers from the array
        * created in the main function, and places them
        * in order from smallest to largest.
+       *
+       * @param intArray | Array of Integers from user
+       * @return | Is a boolean that will return true once over.
        */
       int x = intArray[0];
       int y = intArray[1];
