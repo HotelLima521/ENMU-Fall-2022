@@ -12,11 +12,28 @@
 
 import java.util.Scanner;
 public class IntegerInputs {
+   public static void bar(){
+      /*
+       * Function purely just for separating outputs from other functions
+       */
+      char bar = '\u2015';
+      for(int position = 0; position < 50; position++){
+	 System.out.print(colors('g') + bar + colors('r'));
+      }
+   }
    public static String colors(char input){
+      /*
+       * This function is just to set colors on the string
+       * output to make it easier to read, despite the string
+       * source code looking kinda ugly
+       *
+       * but user experience, am I right?
+       */
       final String ANSI_RESET="\033[0;0m";
       final String ANSI_CYAN="\033[0;36m";
       final String ANSI_PURPLE="\033[1;38m";
       final String DEBUGGING_YELLOW = "\033[1;33m" + "\033[41m";
+      final String ANSI_GREEN = "\033[0;32m";
       String color = ANSI_RESET;
       if(input == 'r'){
 	 color = ANSI_RESET;
@@ -30,59 +47,49 @@ public class IntegerInputs {
       else if(input == 'd'){
 	 color = DEBUGGING_YELLOW;
       }
+      else if(input == 'g'){
+	 color = ANSI_GREEN;
+      }
       return color;
    }
    public static void main(String[] args){
       Scanner userInput = new Scanner(System.in);
       System.out.println(colors('c') + "Please enter some integer values: " + colors('r'));
       String userStringInput = userInput.nextLine();
+      /*
+       * Array setup to store data in one spot, and make access
+       * nice and easy for all four of the functions by requirement
+       * of this lab
+       */
       int[] integerArray;
       integerArray = new int[userStringInput.length()];
       for(int userIn = 0; userIn < integerArray.length; userIn++){
-	       /*System.out.printf("In Character %c, Character to Integer %d, Character to String %s, String to Integer %d\n",
-		     userStringInput.charAt(userIn), (int)(userStringInput.charAt(userIn)),
-		     Character.toString(userStringInput.charAt(userIn)), Integer.parseInt(Character.toString(userStringInput.charAt(userIn))) );
-*/
-	       integerArray[userIn] = Integer.parseInt(Character.toString(userStringInput.charAt(userIn)));
-	    }
-      /*try {
-	 while(!userStringInput.isEmpty()){
-	 
-	    for(int userIn = 0; userIn < integerArray.length; userIn++){
-	       integerArray[userIn] = Integer.parseInt(Character.toString(userStringInput.charAt(userIn)));
-	    }
-	    userStringInput = userInput.nextLine();
-	    counter++;
-	 }
-      }
-      catch(NumberFormatException e){
-	 System.out.println("It appears you inputted the incorrect character");
-      }
-      */
-      int n = 0;
-      while(n < integerArray.length){
-         System.out.println(colors('d') + "Digits: " +  integerArray[n]);
-	 n++;
-      }
+         integerArray[userIn] = Integer.parseInt(Character.toString(userStringInput.charAt(userIn)));
+      } 
       // Smallest and Largest Inputs
       smallestAndLargestInputs(integerArray, userStringInput.length());
+      bar();
      
       // Cumulative Number Addition
       cumulativeNumberAddition(integerArray, userStringInput.length());
-
+      bar();
       // Number of Odd and Even Inputs
       numberOfOddAndEvenInputs(integerArray, userStringInput.length());
-
+      bar();
       // Adjacent Duplicates
-      adjacentDuplicates(integerArray, userStringInput.length());
+      adjacentDuplicates(integerArray, integerArray.length);
 
    }
    public static void smallestAndLargestInputs(int[] parsed, int counter){
-      int smallest = 9999;
-      int largest = 0;
       int n = 0; // To signify the position of the array
+      /* 
+       * Going to start smallest and largest off with the first position
+       * Just to make it a bit more flexible with other numbers, e.g. if a number
+       * is negative or stupid large
+       */
+      int smallest = parsed[n];
+      int largest = parsed[n];
       while(n < counter){
-	 //System.out.println(colors('d') + n + ' ' + counter + colors('r'));
 	 if(smallest >= parsed[n]){
 	    smallest = parsed[n];
 	 }
@@ -91,20 +98,29 @@ public class IntegerInputs {
 	 }
 	 n++;
       }
-      System.out.println(colors('p') + "Largest: " + colors('c') + largest + colors('r') + colors('p') +"\nSmallest: " + colors('c') + smallest +colors('r'));
+      // First example of the ugly string setup, but trust me it looks nice on output.
+      System.out.println(colors('p') + "\nLargest: " + colors('c') + largest + colors('r') + colors('p') +"\nSmallest: " + colors('c') + smallest +colors('r'));
    }
 
    public static void cumulativeNumberAddition(int[] parsed, int counter){
+      /*
+       * All that's going on here is creating a sum out of all of the integers
+       * within the array
+       */
       int n = 0;
       int sum = 0;
       while(n < counter){
    	 sum += parsed[n];
 	 n++;
       }
-      System.out.printf(colors('p') + "The Cumulative Sum is: " + colors('c') + "%d\n" + colors('r'), sum);
+      System.out.printf(colors('p') + "\nThe Cumulative Sum is: " + colors('c') + "%d\n" + colors('r'), sum);
    }
 
    public static void numberOfOddAndEvenInputs(int[] parsed, int counter){
+      /*
+       * Really simple odd/even counter, if an integer can be divided by two without anything left over,
+       * it's an even number. If not, it's going to be odd.
+       */
       int even = 0;
       int odd = 0;
       int n = 0;
@@ -117,30 +133,27 @@ public class IntegerInputs {
 	 }
 	 n++;
       }
-      System.out.printf(colors('p') + "Number of Even numbers: " + colors('c') + "%d\n" + colors('r') + colors('p') + "Number of Odd Numbers: " + colors('c') + "%d\n" + colors('r'), even, odd);
+      System.out.printf(colors('p') + "\nNumber of Even numbers: " + colors('c') + "%d\n" + colors('r') + colors('p') + "Number of Odd Numbers: " + colors('c') + "%d\n" + colors('r'), even, odd);
    }
    public static void adjacentDuplicates(int[] parsed, int counter){
-      // Let's literally just check for duplicates and push them to a new array, then push that array as a string
-      int holdNum;
+      /*
+       * Lastly, the idea with this function is to check and see if
+       * The adjacent number (n+1) is going to be the same as the current
+       * number we are on (n). If so, it will print this number and continue
+       * on throughout the loop. Thus, we are left with only one number printed.
+       */
       int n = 0;
-      int[] duplicate;
-      duplicate = new int[parsed.length];
-      
       n = 0;
-      while(n < counter){
+      System.out.println(colors('p') + "\nThe following are duplicates that are adjacent to each other: " + colors('r'));
+      while(n < counter-1){
 	 int count = 0;
-	 holdNum = duplicate[n];
-	 if(parsed[n+1] == holdNum){
+	 if(parsed[n+1] == parsed[n]){
 	    count++;
-	    duplicate[n] = holdNum;
+	    System.out.println(colors('c') + parsed[n] + colors('r'));
    	 }
 	 n++;
       }
-      n = 0;
-      System.out.printf(colors('p') + "The number of duplicates adjacent to each other are the following: " + colors('r'));
-      while(n < duplicate.length){
-	 System.out.printf(colors('c') + "%d " + colors('r'), duplicate[n]);
-      }
+      
    }
 
 
