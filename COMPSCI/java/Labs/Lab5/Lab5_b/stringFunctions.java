@@ -89,13 +89,27 @@ public class stringFunctions{
        *
        * @return middle | the middle character(s)
        */
+<<<<<<< HEAD
       String middle = "";
       if (charArray.length % 2 == 0){
 	 middle = (Integer.toString(charArray.length/2));
       }
       else{
 	 middle = (Integer.toString(charArray[(charArray.length/2)-1])) + (Integer.toString(charArray[charArray.length/2]));
+=======
+      float middleDigits = (charArray.length) / 2;
+      int[] intArray;
+      intArray = new int[2];
+      String middle = "";
+      if (middleDigits % 2 == 0){
+	 intArray[0] = Math.round(middleDigits);
       }
+      else{
+	 intArray[1] = Math.round(middleDigits);
+	 intArray[0] = Math.round(middleDigits)-1;
+>>>>>>> 813ffa69b4e3b7803bc52e1a7202727dcd480437
+      }
+      middle = Character.toString(charArray[userStringInput.charAt(intArray[0]])) + Character.toString(charArray[userStringInput.charAt(intArray[1]]));
       return middle;
    }
    public static String repeat(String userInput, int amount){
