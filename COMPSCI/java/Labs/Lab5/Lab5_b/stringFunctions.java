@@ -90,18 +90,17 @@ public class stringFunctions{
        * @return middle | the middle character(s)
        */
       float middleDigits = (charArray.length) / 2;
-      int middleInt = 0;
-      int middleIntUpper = 0;
+      int[] intArray;
+      intArray = new int[2];
       String middle = "";
       if (middleDigits % 2 == 0){
-	 middleInt = Math.round(middleDigits);
-	 middle = Integer.toString(charArray[middleInt]);
+	 intArray[0] = Math.round(middleDigits);
       }
       else{
-	 middleIntUpper = Math.round(middleDigits);
-	 middleInt = middleIntUpper - 1;
-	 middle = Integer.toString(charArray[middleInt]) + Integer.toString(charArray[middleIntUpper]);
+	 intArray[1] = Math.round(middleDigits);
+	 intArray[0] = Math.round(middleDigits)-1;
       }
+      middle = Character.toString(charArray[userStringInput.charAt(intArray[0]])) + Character.toString(charArray[userStringInput.charAt(intArray[1]]));
       return middle;
    }
    public static String repeat(String userInput, int amount){
