@@ -89,18 +89,12 @@ public class stringFunctions{
        *
        * @return middle | the middle character(s)
        */
-      float middleDigits = (charArray.length) / 2;
-      int middleInt = 0;
-      int middleIntUpper = 0;
       String middle = "";
-      if (middleDigits % 2 == 0){
-	 middleInt = Math.round(middleDigits);
-	 middle = Integer.toString(charArray[middleInt]);
+      if (charArray.length % 2 == 0){
+	 middle = (Integer.toString(charArray.length/2));
       }
       else{
-	 middleIntUpper = Math.round(middleDigits);
-	 middleInt = middleIntUpper - 1;
-	 middle = Integer.toString(charArray[middleInt]) + Integer.toString(charArray[middleIntUpper]);
+	 middle = (Integer.toString(charArray[(charArray.length/2)-1])) + (Integer.toString(charArray[charArray.length/2]));
       }
       return middle;
    }
