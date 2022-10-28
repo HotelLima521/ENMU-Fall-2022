@@ -17,12 +17,12 @@ import java.util.Scanner;
  */
 public class stringFunctions{
    public static void bar(){
-       /**    
+      /**    
        * Function for separating outputs from other functions, blame my ADHD    
        */    
       char bar = '\u2015';    
       for(int position = 0; position < 50; position++){    
-         System.out.print(colors('g') + bar + colors('r'));    
+	 System.out.print(colors('g') + bar + colors('r'));    
       }    
    }
    public static String colors(char input){
@@ -63,12 +63,12 @@ public class stringFunctions{
       for(int arrayPos = 0; arrayPos < charArray.length; arrayPos++){
 	 charArray[arrayPos] = userStringInput.charAt(arrayPos);
       }
-      // Calling methods below
-      // Finding Middle Char
-      System.out.printf(colors('p') + "The middle character is: " + colors('c') + "%c" +  colors('r') + "\n", middle(charArray));
+      // !! Calling methods below !!
+      // Finding Middle Char 
+      System.out.printf(colors('p') + "The middle character is: " + colors('c') + middle(charArray) +  colors('r') + "\n");
       bar();
       // String Repeat
-      System.out.printf(colors('g') + "Enter a string to repeat.\n" + colors('c') + "-> " + colors('r'));
+      System.out.printf("\n" + colors('g') + "Enter a string to repeat.\n" + colors('c') + "-> " + colors('r'));
       String repeatStr = userInput.nextLine();
       System.out.printf(colors('g') + "Enter an amount of times to repeat this string." + colors('c') + "\n-> " + colors('r'));
       int repeatNo = userInput.nextInt();
@@ -79,8 +79,9 @@ public class stringFunctions{
       bar();
       // Counting Words
       System.out.printf(colors('p') + "\nThe amount of words in the original string is: " + colors('c') + "%d" + colors('r') + "\n", countWords(userStringInput));
-   }
    
+   }
+
    public static String middle(char[] charArray){
       /**
        * Finding middle digit
@@ -89,25 +90,21 @@ public class stringFunctions{
        *
        * @return middle | the middle character(s)
        */
-      String middle = "";
-      if (charArray.length % 2 == 0){
-	 middle = (Integer.toString(charArray.length/2));
-      }
-      else{
-	 middle = (Integer.toString(charArray[(charArray.length/2)-1])) + (Integer.toString(charArray[charArray.length/2]));
       float middleDigits = (charArray.length) / 2;
       int[] intArray;
       intArray = new int[2];
       String middle = "";
-      if (middleDigits % 2 == 0){
-	 intArray[0] = Math.round(middleDigits);
+      if (middleDigits % 2 != 0){
+	 intArray[0] = Math.round(middleDigits-1);
       }
       else{
-	 intArray[1] = Math.round(middleDigits);
-	 intArray[0] = Math.round(middleDigits)-1;
+	 intArray[0] = (int)middleDigits-1;
+	 intArray[1] = (int)middleDigits;
+	 middle = Character.toString(charArray[(int)middleDigits-1]) + Character.toString(charArray[(int)middleDigits]);
+	 return middle;
       }
-      middle = Character.toString(charArray[userStringInput.charAt(intArray[0]])) + Character.toString(charArray[userStringInput.charAt(intArray[1]]));
-      return middle;
+      middle = Character.toString(charArray[(int)middleDigits]);
+	 return middle;
    }
    public static String repeat(String userInput, int amount){
       /**
