@@ -101,7 +101,7 @@ public class stringFunctions{
 	 intArray[0] = (int)middleDigits-1;
 	 intArray[1] = (int)middleDigits;
 	 middle = Character.toString(charArray[(int)middleDigits-1]) + Character.toString(charArray[(int)middleDigits]);
-	 return middle;
+      	 return middle;
       }
       middle = Character.toString(charArray[(int)middleDigits]);
 	 return middle;

@@ -1,0 +1,59 @@
+—CS452 Final Layout
+
+--Field Layout
+Item Start End Length
+Field 0 41 42
+Category 42 45 4
+Start 46 48 3
+End 49 51 3
+
+
+
+--Field Data
+                     Geographic Identifier  NA  0 77
+                                  Category  NA 78 83
+                          Total Population SUM 84 92
+                                      Male SUM 93101
+                                    Female SUM102110
+                             Under 5 years AGE111118
+                              5 to 9 Years AGE119126
+                            10 to 14 Years AGE127134
+                            15 to 19 Years AGE135142
+                            20 to 24 Years AGE143150
+                            25 to 34 Years AGE151158
+                            35 to 44 Years AGE159166
+                            45 to 54 Years AGE167174
+                            55 to 59 Years AGE175182
+                            60 to 64 Years AGE183190
+                            65 to 74 Years AGE191198
+                            75 to 84 Years AGE199206
+                         85 Years and Over AGE207213
+                                Median Age MED214217
+                         18 Years and OverASUM218226
+                 Male - 18 Years and olderASUM227235
+               Female - 18 Years and olderASUM236244
+                         21 Years and OverASUM245253
+                         62 Years and OverASUM254261
+                         65 Years and OverASUM262269
+                 Male - 65 Years and olderASUM270277
+               Female - 65 Years and olderASUM278285
+                                  One RaceRSUM286294
+                                     WhiteRACE295303
+                 Black or African AmericanRACE304311
+          American Indian or Alaska NativeRACE312318
+                                     AsianRACE319326
+                              Asian IndianRACE327333
+                                   ChineseRACE334340
+                                  FilipinoRACE341347
+                                  JapaneseRACE348353
+                                    KoreanRACE354360
+                                VietnameseRACE361367
+                               Other AsianRACE368374
+Native Hawaiian and Other Pacific IslanderRACE375380
+                           Native HawaiianRACE381386
+                     Guamanian or ChamorroRACE387391
+                                    SamoanRACE392396
+                    Other Pacific IslanderRACE397402
+                           Some other raceRACE403410
+                         Two or more racesRACE411417
+                               Other White  NA418426
