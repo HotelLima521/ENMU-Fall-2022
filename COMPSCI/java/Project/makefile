@@ -18,12 +18,18 @@ SRCS := $(wildcard $(SRC_DIR)/*.java)
 ##
 CLS := $(SRCS:$(SRC_DIR)/%.java=$(OUT_DIR)/%.class)
 
+
 ##
 # Compiler and CFLAGS
 ##
 JC := javac
 JCFLAGS := -d $(OUT_DIR)/ -cp $(SRC_DIR)/
 
+##
+# Jar Creation
+##
+jar: $(CLS)
+	jar cvf $(OUT_DIR)/ClassProject.jar $(CLS)
 ##
 # Suffixes
 ##
@@ -37,8 +43,8 @@ PHONY: all clean
 ##
 # Default target(s)
 ##
-all: $(CLS)
-
+all: ClassProject
+ClassProject: $(CLS)
 $(CLS): $(OUT_DIR)/%.class: $(SRC_DIR)/%.java
 	$(JC) $(JCFLAGS) $<
 
